@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+group = "cynfoxwell.cyntweaks"
+archivesBaseName = "CynTweaks"
+version = "0.0.7"
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+minecraft {
+    version = "1.12.2-14.23.1.2555"
+    mappings = "snapshot_20171003"
+    runDir = "run"
+    makeObfSourceJar = false
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+jar {
+    archiveName = project.archivesBaseName+"-"+project.minecraft.version+"-"+project.version+".jar"
+
+    manifest {
+        attributes 'FMLCorePlugin': 'cynfoxwell.cyntweaks.asm.CTASM'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}

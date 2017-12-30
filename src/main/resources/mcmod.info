@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cyntweaks",
+  "name": "Cynthia's Tweaks",
+  "description": "Various clientside tweaks, utilities and small mods.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BoxOfFlex"],
+  "credits": "\u00A7nMods Ported:\u00A7r\nprplz - System.gc removal (From MemoryFix)\nSk1er/prplz - Winter Weather Mod (adapted to WeatherMod)\nOrangeMarshall - Simple ToggleSprint\nCinque - TimeChanger\nmodmuss - Pong (adapted to Numerical Ping)\npowns - Glint Colorizer",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
